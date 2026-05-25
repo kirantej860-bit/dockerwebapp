@@ -8,8 +8,7 @@ services:
     networks:
       - mynetwork
     deploy:
-      replicas: 3
-   
+      replicas: 1
 
   application:
     image: devopstej/automation:app
@@ -17,13 +16,9 @@ services:
       - "1111:8080"
     networks:
       - mynetwork
-     deploy:
+    deploy:
       replicas: 3
 
 networks:
-mynetwork:
-driver: overlay
-   
-   
-
-
+  mynetwork:
+    driver: overlay
