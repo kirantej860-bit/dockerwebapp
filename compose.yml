@@ -3,16 +3,26 @@ version: "3.9"
 services:
   devopsdb:
     image: devopstej/automation:db
-    container_name: db
     ports:
       - "3306:3306"
+    networks:
+      - mynetwork
+    deploy:
+      replicas: 3
    
 
   application:
     image: devopstej/automation:app
-    container_name: application
     ports:
       - "1111:8080"
+    networks:
+      - mynetwork
+     deploy:
+      replicas: 3
+
+networks:
+mynetwork:
+driver: overlay
    
    
 
