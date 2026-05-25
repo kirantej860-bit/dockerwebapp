@@ -5,8 +5,7 @@ services:
     image: devopstej/automation:db
     ports:
       - "3306:3306"
-    networks:
-      - mynetwork
+   
 
   application:
     image: devopstej/automation:app
@@ -14,9 +13,6 @@ services:
       - "1111:8080"
     deploy:
       replicas: 3
-    networks:
-      - mynetwork
+   
 
-networks:
-  mynetwork:
-    driver: bridge
+
